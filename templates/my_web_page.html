@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        body {
+            background: #3C6E71; /* Gradient from light blue to dark blue */
+            color: #ffffff; /* White text color */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Ensure content flows vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        /* Basic styling for the navigation bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 0;
+            width: 100%; /* Ensure it spans the full width */
+            box-sizing: border-box; /* Include padding in the width */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto; /* Center container horizontally */
+            padding: 20px;
+            background: hsl(0, 29%, 8%); /* White background for the content */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+
+        /* Styling for the table */
+        table {
+            width: 100%; /* Ensure table takes full width of the container */
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #284B63;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #284B63;
+        }
+
+        tr:nth-child(even) {
+            background-color: #284B63;
+        }
+        tr:nth-child(odd) {
+            background-color: #0F757B;
+        }
+        /* Input and Button styling */
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #0d47a1;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in the width */
+        }
+
+        button {
+            background: linear-gradient(to right, #0d47a1, #1976d2); /* Gradient for button */
+            color: #ffffff; /* White text on the button */
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #1976d2, #0d47a1); /* Reversed gradient on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="/Add_users_menu">Add User</a>
+        <a href="/Update_users_menu">Update User</a>
+
+        <a href="/Delete_users_menu">Delete User</a>
+
+       <!--<a href="/users">View Users</a> -->
+    </div>
+
+    <h1>View Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users.values() %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
